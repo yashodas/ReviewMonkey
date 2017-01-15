@@ -1,25 +1,31 @@
-  <!DOCTYPE html>
-  <html>
-  <head>
-    <title>Review Monkey</title>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="css/main.css">
-  </head>
-  <body>
-   <div class="center">
-      <h1> Review Monkey</h1>
-      <p class='heading'>Watch the reviews of products you want to buy from Online!</p>
-      <section>
-        <form id="create" action="#" class="js-search-form">
-          <label for="query"></label>
-          <input type="text"  class="js-query" id="create-input" placeholder="Amazon Eco" autofocus>
-          <button type="submit" class="search-button">Search</button>
-        </form>
-        <div class="js-search-results">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Review Monkey</title>
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+
+</head>
+<body>
+	<main>
+
+		<div class="form_box">
+			<h1>Review Monkey</h1>
+			
+			<p>Watch the reviews of products you want to buy from <span class="words"> Amazon </span> , so that you can make the best selection </p>
+			<div class="product_search">
+				<form class="js-search-form">
+				<input type="text" class="js-query" placeholder="Amazon Eco" autofocus="true">
+				<span class="button">
+					<input type="submit" class="search-button" value="Search">
+				</span>
+				</form>
+				 <div class="js-search-results">
         </div>  
-      </section>      
-  </div>
-      <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
-      <script type="text/javascript" src="scripts/app.js"></script>
-    </body>
-    </html>
+			</div> 
+		</div>
+	</main>
+	<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+    <script type="text/javascript" src="scripts/app.js"></script>
+</body>
+</html>
