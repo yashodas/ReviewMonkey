@@ -22,7 +22,8 @@ function getDataFromApi(searchTerm, callback) {
 function displayAmazonSearchData(data) {
   var resultElement = '';
   if (data.Items.Item) {
-    data.Items.Item.forEach(function(item) {
+      data.Items.Item.forEach(function(item) {
+
      resultElement += '<div class="result-item"><p><span class="result-item-title">' + item.ItemAttributes.Title + '</span> - '
                       +item.ItemAttributes.ListPrice.FormattedPrice+'</p>';
      resultElement += '<p><img src="' + item.MediumImage.URL + '"/></p></div>';
@@ -42,16 +43,38 @@ function watchSubmit() {
     getDataFromApi(query, displayAmazonSearchData);
   });
 }
+//getting the data from youtube API
+function getDataFromYoutubeApi(searchTerm, callback) {
+  var query = {
+    q: searchTerm,
+    part: 'snippet',
+    key: 'AIzaSyDudw8nUR-YVKNgTjfE3-gply8ykXJip-w'
+  };
+  $.getJSON(YoutubeBaseUrl, query, callback);
+}
+
+
 //function to display youtube results when selected on the product
-function displayYoutubeSearchResults(){
-  
+function displayYoutubeSearchResults(amazonData){
+  var resultYoutubeElement = '';
+    console.log(amazonData);
+  if (amazonData.items) {
+    amazonData.items.forEach(function(item) {
+         resultYoutubeElement += '<a href="#" ></a>';
+     
+    });
+  }
+  else {
+    resultYoutubeElement += '<p>No results</p>';
+  }
 
 }
 //jquery function to click on the amazon product
 function clickAmazonItem(){
   $('.js-search-results').on('click','.result-item',function(){
     var query = $(this).find('span.result-item-title').text();
-    alert(query);
+    getDataFromYoutubeApi(query,displayYoutubeSearchResults);
+
   });
 }
 
