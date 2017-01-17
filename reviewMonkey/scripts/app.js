@@ -55,19 +55,22 @@ function getDataFromYoutubeApi(searchTerm, callback) {
 
 
 //function to display youtube results when selected on the product
-function displayYoutubeSearchResults(amazonData){
+function displayYoutubeSearchResults(youtubeData){
   var resultYoutubeElement = '';
-    console.log(amazonData);
-  if (amazonData.items) {
-    amazonData.items.forEach(function(item) {
-         resultYoutubeElement += '<a href="#" ></a>';
-     
+    console.log(youtubeData);
+  if (youtubeData.items) {
+    youtubeData.items.forEach(function(item) {
+         resultYoutubeElement += '<li><a href="https://www.youtube.com/watch?v='+item.id.videoId+'" target="_blank">'+
+                                  '<img src="'+item.snippet.thumbnails.high.url+'"/>'+
+                                  '</a></li>';
     });
   }
   else {
-    resultYoutubeElement += '<p>No results</p>';
+    resultYoutubeElement = '<p>No results</p>';
   }
-
+  $('.overlay').show();
+  $('.youtube-results').show();
+  $('.youtube-results ul').html(resultYoutubeElement);
 }
 //jquery function to click on the amazon product
 function clickAmazonItem(){
@@ -81,4 +84,9 @@ function clickAmazonItem(){
 $(function(){
   watchSubmit();
   clickAmazonItem();
-});
+  $('.close').click(function(e){
+      e.preventDefault();
+      $('.overlay').hide();
+      $('.youtube-results').hide();
+  });
+}); 

@@ -81,3 +81,50 @@ height:30px;
 	    font-family: sans-serif;
 	    margin: 10px 2.5%;
 }
+
+.overlay {
+	position: fixed;
+	z-index: 300;
+	left: 0; right: 0;
+	top: 0; bottom: 0;
+	background-color: rgba(0,0,0,0.8);
+	display: none;
+}
+
+.youtube-results {
+	position: fixed;
+	top: 50px;
+	bottom: 50px;
+	left: 20%;
+	right: 20%;
+	background-color: white;
+	z-index: 350;
+	display: none;
+	overflow: auto;
+	padding: 25px;
+}
+
+	.youtube-results ul {
+		list-style: none;
+		padding: 0px;
+	}
+
+	.youtube-results li {
+	    width: 45%;
+	    display: inline-block;
+	    margin: 0 2.5% 25px;
+	}
+
+	.youtube-results li img {
+		width: 100%;
+	}
+
+	.youtube-results .close {
+		font-size: 30px;
+		color: gray;
+		position: absolute;
+		top: 5px;
+		right: 15px;
+	    text-decoration: none;
+	    font-family: sans-serif;	
+	}
